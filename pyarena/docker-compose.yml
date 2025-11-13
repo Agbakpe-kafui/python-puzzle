@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   # Main FastAPI application
   web:
@@ -20,9 +18,9 @@ services:
         condition: service_healthy
       redis:
         condition: service_healthy
-    volumes:
-      - ./app:/app/app  # Mount for hot reload in development
-    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+    # volumes:
+    #   - ./app:/app/app  # Mount for hot reload in development
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000
     networks:
       - pyarena_network
 
@@ -70,7 +68,7 @@ services:
     environment:
       - REDIS_HOSTS=local:redis:6379
     ports:
-      - "8081:8081"
+      - "8082:8081"
     depends_on:
       - redis
     networks:
