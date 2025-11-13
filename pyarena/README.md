@@ -58,7 +58,10 @@ Using Poetry (recommended):
 # Install Poetry if you haven't
 curl -sSL https://install.python-poetry.org | python3 -
 
-# Install dependencies
+ 
+#for feodra only 
+sudo dnf install gcc-c++
+# Install dependencies 
 poetry install
 ```
 
